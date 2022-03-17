@@ -78,6 +78,9 @@ The default username is **Admin** and password is **myeshop**
 * Logout and log back in as the new user 
 
 
+## **Tips**
+* When adding new product try to stick with **1x1** aspect ration for the product image 
+
 # **Eshop**
 
 ## Homepage
