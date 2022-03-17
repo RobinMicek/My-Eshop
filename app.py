@@ -14,7 +14,7 @@ from products import Product
 from promo_codes import Promo
 from users import User
 from orders import Order
-from affilitate import Affiliate
+from affiliate import Affiliate
 
 
 
