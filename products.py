@@ -1,6 +1,4 @@
 import json
-from numpy import product
-
 from pymongo import MongoClient
 
 
