@@ -1,0 +1,57 @@
+{% extends '/admin/base.html' %}
+
+{% block content %}
+
+<div align="left">
+    <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#affiliatesModal">
+        NEW CAMPAIGN
+    </button>      
+</div>
+{% include '/admin/affiliates-modal.html' %}
+
+<br>
+
+<div align="center" style="width: 80%;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Visits</th>
+                <th scope="col">Link</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for item in all_affiliates %}
+
+            <tr>
+                <th scope="row">{{ item["campaign"] }}</th>
+                <th>
+                    <b>{{ item["visits"] }}</b>
+                </th>
+                <th>
+                    <a class="glow" href="/affiliate/{{ item['campaign'] }}" target="_blank">/affiliate/{{ item["campaign"] }}</a>
+                </th>
+                <th>
+                    <a href="/admindo/delete-affiliate?campaign={{ item['campaign'] }}">
+                        <button type="button" class="btn btn-danger">DELETE</button>
+                    </a>
+                </th>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

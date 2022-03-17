@@ -1,0 +1,85 @@
+{% extends '/shop/base.html' %}
+
+{% block content %}
+
+
+<div align="center">
+
+    <div style="width: 50%;" class="align-m-l">
+
+        {% for item in items %}
+        <h2>
+            {{ item["name"] }} - <span class="secondary">$ {{ item["price"] }}</span>
+        </h2>
+        <br>    
+        {% endfor %}
+        
+        <br>
+
+        {% for item in discounts %}
+        <h3>
+            {{ item["name"] }} - <span style="color:red"> $ {{ item["discount"] }}</span>
+        </h3>
+        {% endfor %}
+        
+        <br>
+        
+        <h3>
+            Shipping - <span class="secondary">$ {{ general["shipping-price"] }}</span> 
+        </h3>
+
+        
+        
+        
+        
+        <hr>
+        <br>
+        
+        <div class="align-m-r">
+            <h2>Total - <span style="color: red;">$ {{ total }}</span></h2>
+            <br>
+
+            <a href="/order">
+                <button class="btn">ORDER</button>                
+            </a>
+
+
+
+            <br><br><br>
+
+            <hr>
+
+            <br><br><br>
+            
+            <form action="/do/add-promo">
+
+                <h3>
+                    Promo Code: 
+                    <input type="text" name="code">
+    
+                    <button type="submit" class="btn-form">Add to cart</button>
+
+                </h3>
+            </form>
+        </div>
+
+        <br><br>
+        
+        <div class="align-m-r">
+            <a href="/do/empty-cart">
+                <button class="btn-form" style="background-color: rgb(141, 29, 29);">
+                    EMPTY CART
+                </button>    
+            </a>
+            <br><br>
+        </div>
+
+
+        
+
+        
+    </div>
+</div>
+
+
+{% endblock %}

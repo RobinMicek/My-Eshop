@@ -1,0 +1,28 @@
+<!-- Modal -->
+<div class="modal fade" id="affiliatesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Campaign</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <form action="/admindo/create-affiliate" method="POST">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="campaign" placeholder="My New Campaign" required>
+                    <label for="floatingInput">Campaign</label>
+                </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Create</button>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>

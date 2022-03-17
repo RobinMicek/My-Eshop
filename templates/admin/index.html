@@ -1,0 +1,74 @@
+{% extends '/admin/base.html' %}
+
+{% block content %}
+
+    <style>
+        .container-analytics {
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            ". . ."; 
+        }
+
+    </style>
+
+
+    <div align="center">
+
+        <h1 class="display-2">{{ general["name"] }}' DASHBOARD</h1>
+        <hr style="width: 50%;">
+
+
+        <br><br><br>
+
+        <div style="width: 80%;" class="container-analytics">
+
+            <div>
+                <h1><span class="badge bg-success">PROFIT</span></h1>
+                <br>
+
+                <h1 class="display-1">$ {{ profit_today }}</h1>
+                <h6>TODAY</h6>
+
+                <br><br>
+
+                <h2>$ {{ profit_month }}</h2>
+                <h6>THIS MONTH</h6>
+            </div>
+
+            <div>
+                <h1><span class="badge bg-primary">ORDERS</span></h1>
+                <br>
+
+                <h1 class="display-1">{{ orders_today }}</h1>
+                <h6>TODAY</h6>
+
+
+                <br><br>
+
+                <h2>{{ orders_month }}</h2>
+                <h6>THIS MONTH</h6>
+            </div>
+
+            <div>
+                <h1><span class="badge bg-warning">VISITS</span></h1>
+                <br>
+
+                <h1 class="display-1">{{ visits_today }}</h1>
+                <h6>TODAY</h6>
+
+                <br><br>
+
+                <h2>{{ visits_month }}</h2>
+                <h6>THIS MONTH</h6>
+            </div>
+
+        
+
+
+        </div>
+    </div>
+
+{% endblock %}

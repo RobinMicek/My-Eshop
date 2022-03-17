@@ -1,0 +1,22 @@
+{
+    "general": {
+        "name": "<eshop name - all caps works best>",
+
+        "description": "<eshop description - will be show on homepage - try to fit into one sentence",
+        "cover-image": "Needs to be saved to /static/images/ and named 'cover.jpg'",
+
+        "favicon": "<can be url or needs to be saved in /static - e.g. /static/images/favicon.jpg>",
+
+
+        "product-categories": ["CATEGORY 1", "CATEGORY 2", "CATEGORY 3"],
+        "shipping-price": "<price in usd>"
+    },
+
+    "flask": {
+        "secret-key": "<any random string>"
+    },
+
+    "mongodb": {
+        "connection-string": "<mongodb connection string>"
+    }
+}

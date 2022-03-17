@@ -1,0 +1,83 @@
+{% extends '/admin/base.html' %}
+
+{% block content %}
+
+<div align="left">
+    <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal">
+        NEW PRODUCT
+    </button>      
+</div>
+{% include '/admin/products-modal.html' %}
+
+<br><br>
+
+<div align="left">
+    <div class="btn-group" role="group">
+        <a href="/admin/products">
+            <button type="button" class="btn btn-sm btn-dark">ALL</button>
+        </a>
+        {% for tag in all_tags %}
+
+        <a href="/admin/products?q={{ tag }}">
+            <button type="button" class="btn btn-sm btn-secondary">{{ tag }}</button>
+        </a>
+
+        {% endfor%}
+    </div>
+</div>
+
+<div align="center" style="width: 80%;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Tag</th>
+                <th scope="col">Price</th>
+                <th scope="col">Visibility</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for item in all_products %}
+
+            <tr>
+                <th scope="row">
+                    <a href="/product/{{ item['slug'] }}" class="glow" target="_blank">{{ item["name"] }}</a>
+                </th>
+                <th>{{ item["tag"]}}</th>
+                <th>$ {{ item["price"] }}</th>
+                <th>
+                    {% if item["visibility"] == "TRUE" %}
+                    
+                    <a href="/admindo/change-product-visibility?slug={{ item['slug'] }}&state=FALSE">
+                        <button type="button" class="btn btn-success">{{ item["visibility"] }}</button>
+                    </a>
+
+
+                    {% elif item["visibility"] == "FALSE" %}
+
+                    <a href="/admindo/change-product-visibility?slug={{ item['slug'] }}&state=TRUE">
+                        <button type="button" class="btn btn-danger">{{ item["visibility"] }}</button>
+                    </a>
+
+
+                    {% endif %}
+                    
+                </th>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

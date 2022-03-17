@@ -1,0 +1,187 @@
+/* Grids are defined in the html files themselves  */
+
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+/* Variables */
+:root {
+    --main: #1f1f1f;
+    --secondary: #e7b900
+}
+
+
+/* General */
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    color: white;
+    background-color: var(--main);
+
+
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+    transition-duration: 0.1s;
+
+    
+}
+a:hover {
+    color: var(--secondary);
+}
+
+/* Colors */
+.main {
+    color: var(--main);
+}
+
+.secondary {
+    color: var(--secondary);
+}
+
+/* Text Sizes */
+h1 {
+    font-size: 5vh;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 3vh;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 2vh;
+}
+
+
+/* Buttons */
+.btn {
+    padding: 1vh 5vh;
+    font-size: 3vh;
+
+    border-radius: 0.5vh;
+
+    border: none;
+
+    color: var(--main);
+    background-color: var(--secondary);
+
+    transition-duration: 0.12s; 
+}
+
+.btn:hover {
+    border-radius: 1.5vh 0.5vh;
+    
+    cursor: pointer;
+}
+
+/* Inputs */
+input {
+    font-size: 2.5vh;
+}
+
+
+.btn-form {
+    padding: 0.5vh 2.5vh;
+    font-size: 2vh;
+
+    border-radius: 0.25vh;
+
+    border: none;
+
+    color: var(--main);
+    background-color: var(--secondary);
+
+    transition-duration: 0.12s; 
+}
+
+.btn-form:hover {
+    border-radius: 1.5vh 0.5vh;
+    
+    cursor: pointer;
+}
+
+/* Align - Mobile Optimized*/
+.align-m-r {
+    text-align: right;
+}
+
+.align-m-l {
+    text-align: left;
+}
+
+/* Badge */
+.badge {
+    background-color: var(--secondary);
+    color: var(--main) !important;
+
+    cursor:default;
+
+    font-size: 80%;
+
+    border-radius: 30%;
+}
+
+/* Click-On Image*/
+.img-click {
+    border-radius: 1.5vh;
+
+    transition-duration: 0.12s;
+}
+
+.img-click:hover {
+    border-radius: 5vh 1.5vh ;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Product Card */
+.card {
+    width: 60%;
+}
+
+@media only screen and (max-width: 1024px /* 1280px */)  {
+    h2 {
+        font-size: 4vh;
+    }
+
+    h3 {
+        font-size: 3vh;
+    }
+    
+    .align-m-l {
+        text-align: center;
+    }
+
+    .align-m-r {
+        text-align: center;
+    }
+    
+    .btn {
+        font-size: 7vh;
+    }
+
+    .btn-form {
+        font-size: 3vh;
+    }
+
+    .card {
+        margin-bottom: 10vh;
+    }
+
+    .nav {
+        font-size: 2vh;
+    }
+}

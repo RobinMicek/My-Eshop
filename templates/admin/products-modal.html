@@ -1,0 +1,64 @@
+<!-- Modal -->
+<div class="modal fade" id="productsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <form action="/admindo/create-product" method="POST">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="My New Product" required>
+                    <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Tell us something about the product" name="description" required></textarea>
+                    <label for="floatingTextarea">Description</label>
+                </div>
+
+                <br>
+
+                <div class="form-floating">
+                    <select class="form-select" name="tag" required>
+                      {% for tag in all_tags %}
+                        <option value="{{ tag }}">{{ tag }}</option>
+
+                      {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Tag</label>
+                </div>
+
+                <br>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="price" placeholder="4.99" required>
+                    <label for="floatingInput">Price</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="slug" placeholder="my-new-product" required>
+                    <label for="floatingInput">Slug</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="picture" placeholder="https://my-eshop.com/images/product.jpg" required>
+                    <label for="floatingInput">Image URL</label>
+                </div>
+
+            
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Create</button>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{% extends '/shop/base.html' %}
+
+{% block content %}
+
+<style>
+
+        .card {
+            width: 40%;
+
+            margin: 15vh;
+            padding: 5vh 10vh;
+
+            background-color: var(--secondary);
+            
+            border-radius: 25vh 5vh;
+
+            box-shadow: 3vh 3vh 5vh rgb(12, 12, 12);
+        }
+    </style>
+    
+
+
+    <div align="center">
+
+        <div class="card">
+            <h2 class="main">LOGIN</h2>
+            <hr style="width: 20%;">
+            <br>
+
+            <form method="POST">
+                <h3 class="main">Username</h3>
+                <input type="text" name="username" required>
+
+                <br><br>
+
+                <h3 class="main">Password</H3>
+                <input type="password" name="password" required>
+
+                <br><br><br>
+
+                <button class="btn" style="background-color: var(--main); color: var(--secondary);">Login</button> 
+            </form>
+        </div>
+    
+
+    </div>
+
+{% endblock %}

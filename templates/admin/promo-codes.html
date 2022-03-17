@@ -1,0 +1,55 @@
+{% extends '/admin/base.html' %}
+
+{% block content %}
+
+<div align="left">
+    <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#promosModal">
+        NEW PROMO CODE
+    </button>      
+</div>
+{% include '/admin/promos-modal.html' %}
+
+<br>
+
+<div align="center" style="width: 80%;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for item in all_promos %}
+
+            <tr>
+                <th scope="row">{{ item["name"] }}</th>
+                <th>
+                    <b>{{ item["code"] }}</b>
+                </th>
+                <th>$ {{ item["discount"] }}</th>
+                <th>
+                    <a href="/admindo/delete-promo?code={{ item['code'] }}">
+                        <button type="button" class="btn btn-danger">DELETE</button>
+                    </a>
+                </th>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

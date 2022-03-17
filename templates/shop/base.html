@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ general["name"] }}</title>
+
+    <link rel="icon" type="image/x-icon" href="{{general['favicon']}}">
+
+    <link rel="stylesheet" href="/static/css/shop.css">
+</head>
+<body>
+
+
+    <style>
+        li {
+            display: inline;
+        }
+    
+        li {
+            float: right;
+        }
+        
+        .a {
+            display: block;
+            margin-right: 5vh;
+        }
+
+        @media only screen and (max-width: 1024px /* 1280px */)  {
+            .a {
+                margin-right: 2vh;
+            }
+        
+        }
+    </style>
+    
+    <div>
+        <nav>
+            <ul>
+                <li style="float: left;"><a href="/">
+                    <h2 class="nav">{{ general["name"] }}
+                        </h2>
+                    </a></li>
+    
+                <li><a class="a" href="/cart">
+                    <h2 class="nav">CART
+                        <span class="badge"> {{ cart_state }} </span></h2>
+                </a></li>
+                
+    
+                
+                <li><a class="a" href="/products">
+                    <h2 class="nav">PRODUCTS</h2>
+                </a></li>
+    
+            </ul> 
+        </nav>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    {% block content %}
+    
+    <br><br><br>
+
+    <div align="center">
+        <h1>404</h1>
+        <h2>This page does not exist!</h2>
+    </div>
+
+    {% endblock %}
+
+    
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% extends '/shop/base.html' %}
+
+
+{% block content %}
+
+<style>
+    .cover {
+        padding: 10%;
+
+        background-repeat: no-repeat;
+        background-size: 100% !important;
+        background-position: center;
+
+        background: rgba(0, 0, 0, 0.7) url(/static/images/cover.jpg) no-repeat ;
+        background-blend-mode: darken;
+    }
+</style>
+
+
+<div align="center" class="cover">
+
+    <h1 style="font-size: 10vh;">
+        {{ general["name"] }}</h1>
+    <h2>{{ general["description"] }}</h2>
+
+</div>
+
+<br><br>
+
+<div align="center">
+
+    <style>
+        .container {
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 10% 0%; 
+        grid-template-areas: 
+        "g g g"; 
+        }
+
+        @media only screen and (max-width: 1024px /* 1280px */) {
+        .container {
+            display: block;
+        }
+    }
+    </style>
+
+    <div class="container">
+
+        {% for item in items %}
+
+            {% if item["visibility"] == "TRUE" %}
+    
+            <div class="g">
+                <a href="/product/{{ item['slug'] }}">
+                
+                    <div class="card">
+                        
+                        <img src="{{ item['picture'] }}" class="img-click" style="width: 100%">
+
+                        <h2>
+                            {{ item["name"] }}</h2>
+
+                        <h3 class="secondary" style="font-weight: 700;"> 
+                            $ {{ item["price"] }}</h3>
+
+
+                    </div>
+                </a>
+
+            </div>
+
+            {% endif %}
+    
+        {% endfor %}
+    </div>
+</div>
+
+<br><br>
+
+<br><br><br><br><br><br><br><br>
+      
+<footer>
+    <div align="center">
+        <a href="https://github.com/RobinMicek">made with ♥ by Robin Micek</a>
+    </div>
+
+</footer>
+<br><br><br>
+
+
+
+
+{% endblock %}

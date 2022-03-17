@@ -1,0 +1,185 @@
+{% extends '/admin/base.html' %}
+
+{% block content %}
+
+<style>
+    .container-card {
+        display: grid; 
+        grid-auto-flow: column; 
+        grid-auto-columns: 1fr 1fr 1fr; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "g g"; 
+    }
+</style>
+
+
+<div align="center">
+
+    <div align="left">
+        <div class="btn-group" role="group">
+            <a href="/admin/orders">
+                <button type="button" class="btn btn-dark">ALL</button>
+            </a>
+
+            <a href="/admin/orders?q=CREATED">
+                <button type="button" class="btn btn-danger">CREATED</button>
+            </a>
+
+            <a href="/admin/orders?q=PROCESSING">
+                <button type="button" class="btn btn-primary">PROCESSING</button>
+            </a>
+            
+            <a href="/admin/orders?q=PACKED">
+                <button type="button" class="btn btn-warning">PACKED</button>
+            </a>
+            
+            <a href="/admin/orders?q=SENT">
+                <button type="button" class="btn btn-success">SENT</button>
+            </a>
+            
+            <a href="/admin/orders?q=DELIVERED">
+                <button type="button" class="btn btn-secondary">DELIVERED</button>
+            </a>
+
+            <a href="/admin/orders?q=CLOSED">
+                <button type="button" class="btn btn-muted">CLOSED</button>
+            </a>
+        </div>
+    </div>
+
+    <br><br>
+
+
+
+
+    {% for item in all_orders %}
+
+    <div class="card" style="width: 80%; text-align: left;">
+        <div class="card-body">
+            <div class="container-card">
+                <div>
+                    <h4>Order number: #{{item["order-id"]}}</h4>
+                </div>
+                <div>
+                    {% if item["state"] == "CREATED" %}
+                    <button type="button" class="btn btn-danger">CREATED</button>
+            
+                    {% elif item["state"] == "PROCESSING" %}
+                        <button type="button" class="btn btn-primary">PROCESSING</button>
+                
+                    {% elif item["state"] == "PACKED" %}
+                    <button type="button" class="btn btn-warning">PACKED</button>
+                
+                    {% elif item["state"] == "SENT" %}
+                        <button type="button" class="btn btn-success">SENT</button>
+                
+                    {% elif item["state"] == "DELIVERED" %}
+                        <button type="button" class="btn btn-secondary">DELIVERED</button>
+                
+                    {% elif item["state"] == "CLOSED" %}
+                        <button type="button" class="btn btn-muted">CLOSED</button>
+                
+                    {% endif %} 
+                
+                </div>
+            </div>
+
+            
+
+            <br>
+            
+
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item container-card">
+                    <div>
+                        <p>
+                            <b>{{item["name"]}}</b> <br>
+                            {{item["email"]}} <br>
+                            {{item["phone"]}} <br>
+                    </div>
+
+                    <div>
+                        <p>
+                            {{item["street"]}} {{item["apartment"]}} <br>
+                            {{item["city"]}} <br>
+                            {{item["postcode"]}} <br>
+                            {{item["country"]}}
+                        </p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    {% for product in item["products"] %}
+                        <div class="container-card">
+                            <div>
+                                <p>
+                                    <a href="/product/{{product['slug']}}" class="glow" target="_blank">
+                                        <b>{{product['name']}}</b>
+                                    </a>
+                                </p>
+                            </div>
+                            <div>
+                                <p>
+                                    $ {{product["price"]}}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                </li>
+                <li class="list-group-item">
+                    <p>
+                        Last Change: <b>{{item["last-change"]}}</b> <br>
+                        Changed By: <b>{{item["changed-by"]}}</b> <br>
+
+                        <br>
+                        Created: <b>{{item["created"]}}</b>
+                    </p>
+                    <b><a class="glow" href="/tracking?order-id={{ item['order-id'] }}" target="_blank">Tracking Link</a></b>
+                </li>
+            </ul>
+
+            <br>
+
+            <div align="center">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=CREATED">
+                        <button type="button" class="btn btn-danger">CREATED</button>
+                    </a>
+
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=PROCESSING">
+                        <button type="button" class="btn btn-primary">PROCESSING</button>
+                    </a>
+                    
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=PACKED">
+                        <button type="button" class="btn btn-warning">PACKED</button>
+                    </a>
+                    
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=SENT">
+                        <button type="button" class="btn btn-success">SENT</button>
+                    </a>
+                    
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=DELIVERED">
+                        <button type="button" class="btn btn-secondary">DELIVERED</button>
+                    </a>
+
+                    <a href="/admindo/handle-order?id={{item['order-id']}}&state=CLOSED">
+                        <button type="button" class="btn btn-muted">CLOSED</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

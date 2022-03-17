@@ -1,0 +1,46 @@
+{% extends '/shop/base.html' %}
+
+
+{% block content %}
+
+
+<div align="center">
+    <h1 style="font-size: 10vh;">
+        ORDER #{{ order["order-id"] }}
+    </h1>
+
+    <h3>
+        <button class="btn">{{order["state"]}}</button>
+    </h3>
+
+    <br>
+
+    <h2>
+        Price: <span style="color: red;">${{ order["price"] }}</span>
+    </h2> 
+
+
+    <br><br>
+
+    <h3>
+        Last Change: 
+    </h3>
+
+    <h2>
+        {{ order["last-change"] }}
+    </h2>
+
+
+    <br><br>
+
+    <h3>
+        Created: 
+    </h3>
+
+    <h2>
+        {{ order["created"] }}
+    </h2>
+   
+</div>
+
+{% endblock %}

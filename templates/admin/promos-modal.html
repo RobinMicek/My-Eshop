@@ -1,0 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="promosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Promo Code</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <form action="/admindo/create-promo" method="POST">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="My New Product" required>
+                    <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="code" placeholder="4.99" required>
+                    <label for="floatingInput">Code</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="discount" placeholder="my-new-product" required>
+                    <label for="floatingInput">Discount</label>
+                </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Create</button>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>

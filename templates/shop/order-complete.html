@@ -1,0 +1,18 @@
+{% extends '/shop/base.html' %}
+
+{% block content %}
+
+<h1>ORDER WAS SUCCESSFUL</h1>
+<h3>we will contact you via email about progress</h3>
+
+<br><br>
+
+<h3>
+    <a href="/tracking?order-id={{ order_id }}">
+        <button type="button">
+            TRACKING
+        </button>
+    </a>
+</h3>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends '/shop/base.html' %}
+
+
+{% block content %}
+
+
+<div align="center">
+
+    <div class="align-m-l" style="width: 50%;">
+        <form action="/do/create-order" method="POST">
+            <p>Full Name</p>
+            <input type="text" name="name" required>
+
+            <p>Email</p>
+            <input type="email" name="email" required>
+
+            <p>Phone Number</p>
+            <input type="tel" name="phone" required>
+
+            <br><br><br>
+
+            <p>Street</p>
+            <input type="text" name="street" required>
+            
+            <p>Apartment Number</p>
+            <input type="text" name="apartment" required>
+
+            <p>City</p>
+            <input type="text" name="city" required>
+
+            <p>Postal Code</p>
+            <input type="number" name="postcode" required>
+
+            <p>Country</p>
+            <input type="text" name="country" required>
+
+            <br><br><br>
+            <input type="checkbox" required>
+            <label>
+                I have read and agree with 
+                <a href="/static/documents/privacy-policy.pdf">PRIVACY POLICY</a> and  
+                <a href="/static/documents/terms-and-conditions.pdf">TERMS and CONDITIONS</a>
+            </label>
+                
+            <br><br>
+            <button type="submit" class="btn">ORDER</button>
+
+        </form>
+    
+        <br><br>
+    
+    </div>
+
+    
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends '/shop/base.html' %}
+
+{% block content %}
+
+
+<style>
+    .container {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0% 5%; 
+        grid-template-areas: 
+        "g g"; 
+    }
+
+    @media only screen and (max-width: 1024px /* 1280px */) {
+        .container {
+            display: block;
+        }
+    }
+    
+</style>
+
+
+<br><br> 
+
+<div align="center">
+    <div class="container">
+        <div class="g align-m-r">
+            <img src="{{ item.picture }}" style="width: 70%; border-radius: 1.5vh;">
+        </div>
+
+        <div class="g align-m-l" style="max-width: 75%;">
+
+            <h1>{{ item.name }}</h1>
+            
+            <h2 class="secondary">$ {{ item.price }}</h2>
+            <br>
+
+            <h3>{{ item.description }}</h3>
+
+            <br>
+            
+            {% if item.visibility == "TRUE" %}
+                <a href="/do/add-to-cart?item={{ item.slug }}">
+                    <button class="btn">
+                        BUY
+                    </button>
+                </a>
+
+            {% elif item.visibility == "FALSE" %}
+
+                <button class="btn">
+                    NOT FOR SALE
+                </button>
+            
+
+            {% endif %}
+            
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
